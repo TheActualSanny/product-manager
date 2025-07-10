@@ -18,13 +18,13 @@ class DatabaseManager:
             Loads prodcuts from the database,
             returns list of of dictionaries of records.
         '''
-        self._cur.execute(f'SELECT * FROM products')
+        self._cur.execute(f'SELECT product_name, product_description, product_price FROM products')
         products = self._cur.fetchall()
         finalized_list = list()
 
         for product in products:
             product_dict = {
-                product[1] : (product[2], product[3],)
+                product[0] : (product[1], product[2],)
             }
             finalized_list.append(product_dict)
         return finalized_list
@@ -40,12 +40,28 @@ class DatabaseManager:
             except Exception as ex:
                 logger.critical(f'Exception has been found: {ex}')
 
+    def load_shopping_cart_db(self) -> list:
+        '''
+            Returns all products from shopping_cart table.
+        '''
+        self._cur.execute('SELECT product_name, product_description, product_prive FROM shopping_cart')
+        products = self._cur.fetchall()
+        return products
+
+    def delete_from_cart(self, product_data: tuple) -> None:
+        try:
+            with self._conn:
+                self._cur.execute('DELETE FROM shopping_cart WHERE product_name = ? AND product_description = ? AND product_prive = ?',
+                                product_data)
+        except Exception as ex:
+            logger.critical(f'Exception has been found: {ex}')
+            
     def empty_shopping_cart(self) -> None:
         '''
             Will be executed one the user checks out.
         '''
         try:
-            with self.conn:
+            with self._conn:
                 self._cur.execute(f'DELETE FROM shopping_cart')
         except Exception as ex:
             logger.critical(f'Exception has found: {ex}')

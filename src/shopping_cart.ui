@@ -14,17 +14,14 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QListView" name="cartList">
+   <widget class="QListWidget" name="cartList">
     <property name="geometry">
      <rect>
-      <x>-10</x>
-      <y>-40</y>
-      <width>821</width>
-      <height>461</height>
+      <x>0</x>
+      <y>0</y>
+      <width>800</width>
+      <height>450</height>
      </rect>
-    </property>
-    <property name="flow">
-     <enum>QListView::LeftToRight</enum>
     </property>
    </widget>
    <widget class="QPushButton" name="purchaseButton">
@@ -38,23 +35,20 @@
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
-    background-color: #444;         /* Default color (dark gray) */
+    background-color: #444;
     color: white;
     font-size: 14px;
     padding: 8px 16px;
     border: none;
-    border-radius: 10px;            /* Rounded corners */
+    border-radius: 10px;
 }
-
 QPushButton:hover {
-    background-color: cyan;         /* Cyan on hover */
-    color: black;                   /* Optional: change text color on hover */
+    background-color: cyan;
+    color: black;
 }
-
 QPushButton:pressed {
-    background-color: #00aaaa;      /* Slightly darker cyan when clicked */
-}
-</string>
+    background-color: #00aaaa;
+}</string>
     </property>
     <property name="text">
      <string>Purchase</string>
@@ -71,23 +65,20 @@ QPushButton:pressed {
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
-    background-color: #444;         /* Default color (dark gray) */
+    background-color: #444;
     color: white;
     font-size: 14px;
     padding: 8px 16px;
     border: none;
-    border-radius: 10px;            /* Rounded corners */
+    border-radius: 10px;
 }
-
 QPushButton:hover {
-    background-color: cyan;         /* Cyan on hover */
-    color: black;                   /* Optional: change text color on hover */
+    background-color: cyan;
+    color: black;
 }
-
 QPushButton:pressed {
-    background-color: #00aaaa;      /* Slightly darker cyan when clicked */
-}
-</string>
+    background-color: #00aaaa;
+}</string>
     </property>
     <property name="text">
      <string>Go Back</string>
@@ -104,23 +95,20 @@ QPushButton:pressed {
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
-    background-color: #444;         /* Default color (dark gray) */
+    background-color: #444;
     color: white;
     font-size: 14px;
     padding: 8px 16px;
     border: none;
-    border-radius: 10px;            /* Rounded corners */
+    border-radius: 10px;
 }
-
 QPushButton:hover {
-    background-color: cyan;         /* Cyan on hover */
-    color: black;                   /* Optional: change text color on hover */
+    background-color: cyan;
+    color: black;
 }
-
 QPushButton:pressed {
-    background-color: #00aaaa;      /* Slightly darker cyan when clicked */
-}
-</string>
+    background-color: #00aaaa;
+}</string>
     </property>
     <property name="text">
      <string>Return Product</string>

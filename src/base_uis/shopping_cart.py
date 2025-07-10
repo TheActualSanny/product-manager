@@ -17,9 +17,8 @@ class Ui_MainWindow(object):
         MainWindow.resize(800, 600)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
-        self.cartList = QtWidgets.QListView(self.centralwidget)
-        self.cartList.setGeometry(QtCore.QRect(-10, -40, 821, 461))
-        self.cartList.setFlow(QtWidgets.QListView.LeftToRight)
+        self.cartList = QtWidgets.QListWidget(self.centralwidget)
+        self.cartList.setGeometry(QtCore.QRect(0, 0, 800, 460))
         self.cartList.setObjectName("cartList")
         self.purchaseButton = QtWidgets.QPushButton(self.centralwidget)
         self.purchaseButton.setGeometry(QtCore.QRect(130, 450, 131, 51))
@@ -103,12 +102,3 @@ class Ui_MainWindow(object):
         self.backButton.setText(_translate("MainWindow", "Go Back"))
         self.returnButton.setText(_translate("MainWindow", "Return Product"))
 
-
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
-    sys.exit(app.exec_())

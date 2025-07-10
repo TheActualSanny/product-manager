@@ -75,6 +75,26 @@ class Ui_MainWindow(object):
 "padding: 4px;\n"
 "background-color: #fefefe;")
         self.productPrice.setObjectName("productPrice")
+        self.gotoCart = QtWidgets.QPushButton(self.centralwidget)
+        self.gotoCart.setGeometry(QtCore.QRect(680, 330, 111, 51))
+        self.gotoCart.setStyleSheet("QPushButton {\n"
+"    background-color: #444;         /* Default color (dark gray) */\n"
+"    color: white;\n"
+"    font-size: 14px;\n"
+"    padding: 8px 16px;\n"
+"    border: none;\n"
+"    border-radius: 10px;            /* Rounded corners */\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: cyan;         /* Cyan on hover */\n"
+"    color: black;                   /* Optional: change text color on hover */\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: #00aaaa;      /* Slightly darker cyan when clicked */\n"
+"}")
+        self.gotoCart.setObjectName("gotoCart")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 24))
@@ -95,6 +115,7 @@ class Ui_MainWindow(object):
         self.productName.setText(_translate("MainWindow", "TextLabel"))
         self.productDescription.setText(_translate("MainWindow", "TextLabel"))
         self.productPrice.setText(_translate("MainWindow", "TextLabel"))
+        self.gotoCart.setText(_translate("MainWindow", "Cart"))
 
 
 if __name__ == "__main__":

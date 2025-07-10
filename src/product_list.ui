@@ -144,6 +144,38 @@ background-color: #fefefe;</string>
      </property>
     </widget>
    </widget>
+   <widget class="QPushButton" name="gotoCart">
+    <property name="geometry">
+     <rect>
+      <x>680</x>
+      <y>330</y>
+      <width>111</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: #444;         /* Default color (dark gray) */
+    color: white;
+    font-size: 14px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 10px;            /* Rounded corners */
+}
+
+QPushButton:hover {
+    background-color: cyan;         /* Cyan on hover */
+    color: black;                   /* Optional: change text color on hover */
+}
+
+QPushButton:pressed {
+    background-color: #00aaaa;      /* Slightly darker cyan when clicked */
+}</string>
+    </property>
+    <property name="text">
+     <string>Cart</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

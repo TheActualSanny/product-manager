@@ -14,6 +14,7 @@ class ProductUiWindow(QMainWindow):
         self.ui.productDescription.setMinimumHeight(200)
         self.load_products()
 
+        self.ui.gotoCart.clicked.connect(self.go_to_cart)
         self.ui.addtoCart.clicked.connect(self.add_to_cart)
 
     def load_products(self) -> None:
@@ -45,9 +46,12 @@ class ProductUiWindow(QMainWindow):
         if curr_index >= 0:
             logger.debug(f'The data of the product added to cart is: {self.ui.productName.text()}, {self.ui.productDescription.text()}, {self.ui.productPrice.text()}')
             manager.insert_shopping_cart((self.ui.productName.text(), self.ui.productDescription.text(), int(self.ui.productPrice.text())))
-        else:
-            logger.debug('worp')
 
+    def go_to_cart(self) -> None:
+        from src.main_uis.cart_ui import ShoppingCartUi
+        self.shopping_cart = ShoppingCartUi()
+        self.shopping_cart.show()
+        self.close()
 
 if __name__ == "__main__":
     import sys
