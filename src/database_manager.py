@@ -18,7 +18,7 @@ class DatabaseManager:
             Loads prodcuts from the database,
             returns list of of dictionaries of records.
         '''
-        self._cur.execute(f'SELECT product_name, product_description, product_price FROM products')
+        self._cur.execute(f'SELECT product_name, product_description, product_price FROM {DatabaseNames.products.value}')
         products = self._cur.fetchall()
         finalized_list = list()
 
@@ -35,7 +35,7 @@ class DatabaseManager:
         '''
         with self._conn:
             try:
-                self._cur.execute(f'INSERT INTO shopping_cart (product_name, product_description, product_prive, added_at) VALUES(?, ?, ?, ?)', 
+                self._cur.execute(f'INSERT INTO {DatabaseNames.shopping_cart.value} (product_name, product_description, product_prive, added_at) VALUES(?, ?, ?, ?)', 
                                 (*product_instance, datetime.now(timezone.utc)))
             except Exception as ex:
                 logger.critical(f'Exception has been found: {ex}')
@@ -44,14 +44,14 @@ class DatabaseManager:
         '''
             Returns all products from shopping_cart table.
         '''
-        self._cur.execute('SELECT product_name, product_description, product_prive FROM shopping_cart')
+        self._cur.execute(f'SELECT product_name, product_description, product_prive FROM {DatabaseNames.shopping_cart.value}')
         products = self._cur.fetchall()
         return products
 
     def delete_from_cart(self, product_data: tuple) -> None:
         try:
             with self._conn:
-                self._cur.execute('DELETE FROM shopping_cart WHERE product_name = ? AND product_description = ? AND product_prive = ?',
+                self._cur.execute(f'DELETE FROM {DatabaseNames.shopping_cart.value} WHERE product_name = ? AND product_description = ? AND product_prive = ?',
                                 product_data)
         except Exception as ex:
             logger.critical(f'Exception has been found: {ex}')
@@ -62,7 +62,7 @@ class DatabaseManager:
         '''
         try:
             with self._conn:
-                self._cur.execute(f'DELETE FROM shopping_cart')
+                self._cur.execute(f'DELETE FROM {DatabaseNames.shopping_cart.value}')
         except Exception as ex:
             logger.critical(f'Exception has found: {ex}')
         
