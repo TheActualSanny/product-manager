@@ -20,8 +20,46 @@ class Ui_MainWindow(object):
 "}")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
+        self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.centralwidget)
+        self.verticalLayout_2.setObjectName("verticalLayout_2")
+        self.groupBox = QtWidgets.QGroupBox(self.centralwidget)
+        self.groupBox.setObjectName("groupBox")
+        self.verticalLayout = QtWidgets.QVBoxLayout(self.groupBox)
+        self.verticalLayout.setObjectName("verticalLayout")
+        self.productName = QtWidgets.QLabel(self.groupBox)
+        font = QtGui.QFont()
+        font.setPointSize(22)
+        self.productName.setFont(font)
+        self.productName.setObjectName("productName")
+        self.verticalLayout.addWidget(self.productName)
+        self.productDescription = QtWidgets.QLabel(self.groupBox)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.productDescription.sizePolicy().hasHeightForWidth())
+        self.productDescription.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setPointSize(15)
+        self.productDescription.setFont(font)
+        self.productDescription.setStyleSheet("border: 1px solid #999;\n"
+"border-radius: 4px;\n"
+"padding: 4px;\n"
+"background-color: #fefefe;")
+        self.productDescription.setWordWrap(False)
+        self.productDescription.setObjectName("productDescription")
+        self.verticalLayout.addWidget(self.productDescription)
+        self.productPrice = QtWidgets.QLabel(self.groupBox)
+        self.productPrice.setStyleSheet("border: 1px solid #999;\n"
+"border-radius: 4px;\n"
+"padding: 4px;\n"
+"background-color: #fefefe;")
+        self.productPrice.setObjectName("productPrice")
+        self.verticalLayout.addWidget(self.productPrice)
+        self.verticalLayout_2.addWidget(self.groupBox)
+        self.productList = QtWidgets.QListWidget(self.centralwidget)
+        self.productList.setObjectName("productList")
+        self.verticalLayout_2.addWidget(self.productList)
         self.addtoCart = QtWidgets.QPushButton(self.centralwidget)
-        self.addtoCart.setGeometry(QtCore.QRect(680, 240, 111, 51))
         self.addtoCart.setStyleSheet("QPushButton {\n"
 "    background-color: #444;         /* Default color (dark gray) */\n"
 "    color: white;\n"
@@ -40,43 +78,8 @@ class Ui_MainWindow(object):
 "    background-color: #00aaaa;      /* Slightly darker cyan when clicked */\n"
 "}")
         self.addtoCart.setObjectName("addtoCart")
-        self.productList = QtWidgets.QListWidget(self.centralwidget)
-        self.productList.setGeometry(QtCore.QRect(0, 0, 261, 551))
-        self.productList.setObjectName("productList")
-        self.groupBox = QtWidgets.QGroupBox(self.centralwidget)
-        self.groupBox.setGeometry(QtCore.QRect(260, 0, 411, 561))
-        self.groupBox.setObjectName("groupBox")
-        self.productName = QtWidgets.QLabel(self.groupBox)
-        self.productName.setGeometry(QtCore.QRect(130, 30, 131, 31))
-        font = QtGui.QFont()
-        font.setPointSize(22)
-        self.productName.setFont(font)
-        self.productName.setObjectName("productName")
-        self.productDescription = QtWidgets.QLabel(self.groupBox)
-        self.productDescription.setGeometry(QtCore.QRect(20, 110, 371, 61))
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Preferred)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.productDescription.sizePolicy().hasHeightForWidth())
-        self.productDescription.setSizePolicy(sizePolicy)
-        font = QtGui.QFont()
-        font.setPointSize(15)
-        self.productDescription.setFont(font)
-        self.productDescription.setStyleSheet("border: 1px solid #999;\n"
-"border-radius: 4px;\n"
-"padding: 4px;\n"
-"background-color: #fefefe;")
-        self.productDescription.setWordWrap(False)
-        self.productDescription.setObjectName("productDescription")
-        self.productPrice = QtWidgets.QLabel(self.groupBox)
-        self.productPrice.setGeometry(QtCore.QRect(150, 250, 81, 21))
-        self.productPrice.setStyleSheet("border: 1px solid #999;\n"
-"border-radius: 4px;\n"
-"padding: 4px;\n"
-"background-color: #fefefe;")
-        self.productPrice.setObjectName("productPrice")
+        self.verticalLayout_2.addWidget(self.addtoCart)
         self.gotoCart = QtWidgets.QPushButton(self.centralwidget)
-        self.gotoCart.setGeometry(QtCore.QRect(680, 330, 111, 51))
         self.gotoCart.setStyleSheet("QPushButton {\n"
 "    background-color: #444;         /* Default color (dark gray) */\n"
 "    color: white;\n"
@@ -95,9 +98,10 @@ class Ui_MainWindow(object):
 "    background-color: #00aaaa;      /* Slightly darker cyan when clicked */\n"
 "}")
         self.gotoCart.setObjectName("gotoCart")
+        self.verticalLayout_2.addWidget(self.gotoCart)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 24))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 22))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
@@ -110,11 +114,11 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.addtoCart.setText(_translate("MainWindow", "Add To Cart"))
         self.groupBox.setTitle(_translate("MainWindow", "Product Data"))
         self.productName.setText(_translate("MainWindow", "TextLabel"))
         self.productDescription.setText(_translate("MainWindow", "TextLabel"))
         self.productPrice.setText(_translate("MainWindow", "TextLabel"))
+        self.addtoCart.setText(_translate("MainWindow", "Add To Cart"))
         self.gotoCart.setText(_translate("MainWindow", "Cart"))
 
 

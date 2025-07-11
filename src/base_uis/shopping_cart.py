@@ -17,75 +17,68 @@ class Ui_MainWindow(object):
         MainWindow.resize(800, 600)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
+        self.verticalLayout = QtWidgets.QVBoxLayout(self.centralwidget)
+        self.verticalLayout.setObjectName("verticalLayout")
         self.cartList = QtWidgets.QListWidget(self.centralwidget)
-        self.cartList.setGeometry(QtCore.QRect(0, 0, 800, 460))
         self.cartList.setObjectName("cartList")
-        self.purchaseButton = QtWidgets.QPushButton(self.centralwidget)
-        self.purchaseButton.setGeometry(QtCore.QRect(130, 450, 131, 51))
-        self.purchaseButton.setStyleSheet("QPushButton {\n"
-"    background-color: #444;         /* Default color (dark gray) */\n"
-"    color: white;\n"
-"    font-size: 14px;\n"
-"    padding: 8px 16px;\n"
-"    border: none;\n"
-"    border-radius: 10px;            /* Rounded corners */\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"    background-color: cyan;         /* Cyan on hover */\n"
-"    color: black;                   /* Optional: change text color on hover */\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color: #00aaaa;      /* Slightly darker cyan when clicked */\n"
-"}\n"
-"")
-        self.purchaseButton.setObjectName("purchaseButton")
-        self.backButton = QtWidgets.QPushButton(self.centralwidget)
-        self.backButton.setGeometry(QtCore.QRect(350, 450, 131, 51))
-        self.backButton.setStyleSheet("QPushButton {\n"
-"    background-color: #444;         /* Default color (dark gray) */\n"
-"    color: white;\n"
-"    font-size: 14px;\n"
-"    padding: 8px 16px;\n"
-"    border: none;\n"
-"    border-radius: 10px;            /* Rounded corners */\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"    background-color: cyan;         /* Cyan on hover */\n"
-"    color: black;                   /* Optional: change text color on hover */\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color: #00aaaa;      /* Slightly darker cyan when clicked */\n"
-"}\n"
-"")
-        self.backButton.setObjectName("backButton")
+        self.verticalLayout.addWidget(self.cartList)
         self.returnButton = QtWidgets.QPushButton(self.centralwidget)
-        self.returnButton.setGeometry(QtCore.QRect(570, 450, 131, 51))
         self.returnButton.setStyleSheet("QPushButton {\n"
-"    background-color: #444;         /* Default color (dark gray) */\n"
+"    background-color: #444;\n"
 "    color: white;\n"
 "    font-size: 14px;\n"
 "    padding: 8px 16px;\n"
 "    border: none;\n"
-"    border-radius: 10px;            /* Rounded corners */\n"
+"    border-radius: 10px;\n"
 "}\n"
-"\n"
 "QPushButton:hover {\n"
-"    background-color: cyan;         /* Cyan on hover */\n"
-"    color: black;                   /* Optional: change text color on hover */\n"
+"    background-color: cyan;\n"
+"    color: black;\n"
 "}\n"
-"\n"
 "QPushButton:pressed {\n"
-"    background-color: #00aaaa;      /* Slightly darker cyan when clicked */\n"
-"}\n"
-"")
+"    background-color: #00aaaa;\n"
+"}")
         self.returnButton.setObjectName("returnButton")
+        self.verticalLayout.addWidget(self.returnButton)
+        self.backButton = QtWidgets.QPushButton(self.centralwidget)
+        self.backButton.setStyleSheet("QPushButton {\n"
+"    background-color: #444;\n"
+"    color: white;\n"
+"    font-size: 14px;\n"
+"    padding: 8px 16px;\n"
+"    border: none;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"QPushButton:hover {\n"
+"    background-color: cyan;\n"
+"    color: black;\n"
+"}\n"
+"QPushButton:pressed {\n"
+"    background-color: #00aaaa;\n"
+"}")
+        self.backButton.setObjectName("backButton")
+        self.verticalLayout.addWidget(self.backButton)
+        self.purchaseButton = QtWidgets.QPushButton(self.centralwidget)
+        self.purchaseButton.setStyleSheet("QPushButton {\n"
+"    background-color: #444;\n"
+"    color: white;\n"
+"    font-size: 14px;\n"
+"    padding: 8px 16px;\n"
+"    border: none;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"QPushButton:hover {\n"
+"    background-color: cyan;\n"
+"    color: black;\n"
+"}\n"
+"QPushButton:pressed {\n"
+"    background-color: #00aaaa;\n"
+"}")
+        self.purchaseButton.setObjectName("purchaseButton")
+        self.verticalLayout.addWidget(self.purchaseButton)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 24))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 22))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
@@ -98,7 +91,16 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.purchaseButton.setText(_translate("MainWindow", "Purchase"))
-        self.backButton.setText(_translate("MainWindow", "Go Back"))
         self.returnButton.setText(_translate("MainWindow", "Return Product"))
+        self.backButton.setText(_translate("MainWindow", "Go Back"))
+        self.purchaseButton.setText(_translate("MainWindow", "Purchase"))
 
+
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    MainWindow = QtWidgets.QMainWindow()
+    ui = Ui_MainWindow()
+    ui.setupUi(MainWindow)
+    MainWindow.show()
+    sys.exit(app.exec_())
